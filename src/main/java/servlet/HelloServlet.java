@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(
         name = "MyServlet",
@@ -17,9 +18,16 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletOutputStream out = resp.getOutputStream();
-        out.write("Hello World!".getBytes());
-        out.flush();
-        out.close();
+//        out.write("Hello World!".getBytes());
+//        out.flush();
+//        out.close();
+        out.println(String.format("<h1>Hello World</h1>"));
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String nome = req.getParameter("nome");
+        PrintWriter out = resp.getWriter();
+        out.println("<h1>"+ nome +"</h1>");
+    }
 }
