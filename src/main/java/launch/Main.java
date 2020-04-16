@@ -17,8 +17,16 @@ public class Main {
         String webappDirLocation = "src/main/";
         Tomcat tomcat = new Tomcat();
 
-        Integer webPort = 8080;
-        tomcat.setPort(webPort);
+//        heroku
+        String webPort = System.getenv("PORT");
+        if(webPort == null || webPort.isEmpty()) {
+            webPort = "8080";
+        }
+        tomcat.setPort(Integer.valueOf(webPort));
+
+
+//        Integer webPort = 8080;
+//        tomcat.setPort(webPort);
 
         StandardContext ctx = (StandardContext) tomcat.addWebapp("/", new File(webappDirLocation).getAbsolutePath());
         System.out.println("configuração da aplicação no dir:  " + new File("./" + webappDirLocation).getAbsolutePath());

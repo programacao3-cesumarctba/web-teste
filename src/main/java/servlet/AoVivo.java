@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(
-        name = "AoVivo",
-        urlPatterns={"/aovivo"}
-)
 
+@WebServlet(
+    name = "AoVivo",
+    urlPatterns = {"/aovivo"}
+)
 public class AoVivo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,6 +23,5 @@ public class AoVivo extends HttpServlet {
         out.println("<input type='submit' value='Enviar'>");
         out.println("</form>");
         out.println("</html>");
-
     }
 }

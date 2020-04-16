@@ -17,17 +17,19 @@ public class HelloServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServletOutputStream out = resp.getOutputStream();
-//        out.write("Hello World!".getBytes());
-//        out.flush();
-//        out.close();
-        out.println(String.format("<h1>Hello World</h1>"));
+        PrintWriter out = resp.getWriter();
+        out.println(String.format("<h1>Olá Mundo</h1>"));
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String nome = req.getParameter("nome");
+//        Contato contato = new Contato();
+//        contato.setNome("Maycon de Moraes");
+//        contato.setTelefone("32657845");
+//        contato.setCelular("98651278");
+//        contato.insere();
         PrintWriter out = resp.getWriter();
-        out.println("<h1>"+ nome +"</h1>");
+        out.println(String.format("<h1>O nome do usuário é %s </h1>", nome));
     }
 }
