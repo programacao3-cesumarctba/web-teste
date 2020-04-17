@@ -49,6 +49,8 @@ public class ContatoRestServlet extends HttpServlet {
             obj.put("nome",  contato.getNome());
             obj.put("telefone", contato.getTelefone());
             obj.put("celular", contato.getCelular());
+            obj.put("telefone2", contato.getTelefone2());
+            obj.put("celular2", contato.getCelular2());
             obj.put("email", contato.getEmail());
 
             out.println(obj);
@@ -66,6 +68,8 @@ public class ContatoRestServlet extends HttpServlet {
                     obj.put("nome", c.getNome());
                     obj.put("telefone", c.getTelefone());
                     obj.put("celular", c.getCelular());
+                    obj.put("telefone", c.getTelefone2());
+                    obj.put("celular", c.getCelular2());
                     obj.put("email", c.getEmail());
                     listaJson.add(obj);
                 }
@@ -102,6 +106,8 @@ public class ContatoRestServlet extends HttpServlet {
             contato.setEmail(req.getParameter("email"));
             contato.setTelefone(req.getParameter("telefone"));
             contato.setCelular(req.getParameter("celular"));
+            contato.setTelefone2(req.getParameter("telefone2"));
+            contato.setCelular2(req.getParameter("celular2"));
             contato.insere();
             resp.setStatus(201); // status create
         } catch (SQLException e) {
@@ -143,6 +149,8 @@ public class ContatoRestServlet extends HttpServlet {
             contato.setEmail(mapa.get("email"));
             contato.setTelefone(mapa.get("telefone"));
             contato.setCelular(mapa.get("celular"));
+            contato.setTelefone2(mapa.get("telefone2"));
+            contato.setCelular2(mapa.get("celular2"));
             contato.altera();
             resp.setStatus(201); // status create
         } catch (SQLException e) {

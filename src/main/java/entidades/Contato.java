@@ -45,6 +45,22 @@ public class Contato extends Entidade{
         this.celular = celular;
     }
 
+    public String getTelefone2() {
+        return telefone;
+    }
+
+    public void setTelefone2(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCelular2() {
+        return celular;
+    }
+
+    public void setCelular2(String celular) {
+        this.celular = celular;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -69,6 +85,8 @@ public class Contato extends Entidade{
             setNome(contatoBd.getNome());
             setTelefone(contatoBd.getTelefone());
             setCelular(contatoBd.getCelular());
+            setTelefone2(contatoBd.getTelefone2());
+            setCelular2(contatoBd.getCelular2());
             setEmail(contatoBd.getEmail());
         } catch (SQLException e) {
             e.printStackTrace();
@@ -93,6 +111,8 @@ public class Contato extends Entidade{
                 c.setNome(rs.getString("nome"));
                 c.setTelefone(rs.getString("telefone"));
                 c.setCelular(rs.getString("celular"));
+                c.setTelefone2(rs.getString("telefone2"));
+                c.setCelular2(rs.getString("celular2"));
                 c.setEmail(rs.getString("email"));
                 contatos.add(c);
             }
@@ -114,6 +134,8 @@ public class Contato extends Entidade{
                 c.setNome(rs.getString("nome"));
                 c.setTelefone(rs.getString("telefone"));
                 c.setCelular(rs.getString("celular"));
+                c.setTelefone2(rs.getString("telefone2"));
+                c.setCelular2(rs.getString("celular2"));
                 c.setEmail(rs.getString("email"));
                 return c;
             }
@@ -129,6 +151,8 @@ public class Contato extends Entidade{
             preparedStatement.setString(1, getNome());
             preparedStatement.setString(2, getTelefone());
             preparedStatement.setString(3, getCelular());
+            preparedStatement.setString(2, getTelefone2());
+            preparedStatement.setString(3, getCelular2());
             preparedStatement.setString(4, getEmail());
             preparedStatement.execute();
             return true;
@@ -148,6 +172,8 @@ public class Contato extends Entidade{
             preparedStatement.setString(1, getNome());
             preparedStatement.setString(2, getTelefone());
             preparedStatement.setString(3, getCelular());
+            preparedStatement.setString(2, getTelefone2());
+            preparedStatement.setString(3, getCelular2());
             preparedStatement.setString(4, getEmail());
             preparedStatement.setInt( 5, getId());
             preparedStatement.execute();
