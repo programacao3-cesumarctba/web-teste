@@ -25,9 +25,7 @@ public class FormContatoServlet extends HttpServlet {
         Integer id      = null;
         String nome     = "";
         String telefone = "";
-        String telefone2 = "";
         String celular  = "";
-        String celular2  = "";
         String email    = "";
 
         if (req.getParameter("op").equals("novo")) {
@@ -44,8 +42,6 @@ public class FormContatoServlet extends HttpServlet {
             nome = contato.getNome();
             telefone = contato.getTelefone();
             celular  = contato.getCelular();
-            telefone2 = contato.getTelefone2();
-            celular2  = contato.getCelular2();
             email    = contato.getEmail();
         } else if (req.getParameter("op").equals("excluir")) {
             // inserir contato
@@ -57,8 +53,6 @@ public class FormContatoServlet extends HttpServlet {
             nome = contato.getNome();
             telefone = contato.getTelefone();
             celular  = contato.getCelular();
-            telefone2 = contato.getTelefone2();
-            celular2  = contato.getCelular2();
             email    = contato.getEmail();
         }
 
@@ -81,8 +75,6 @@ public class FormContatoServlet extends HttpServlet {
         out.println(           String.format("   Nome:   <input type='text' name='nome' value='%s'> <br>", nome) );
         out.println(           String.format("   Telefone:   <input type='text' name='telefone' value='%s'> <br>", telefone));
         out.println(           String.format("   Celular:   <input type='text' name='celular' value='%s'> <br>", celular));
-        out.println(           String.format("   Telefone 2:   <input type='text' name='telefone2' value='%s'> <br>", telefone2));
-        out.println(           String.format("   Celular 2:   <input type='text' name='celular2' value='%s'> <br>", celular2));
         out.println(           String.format("   E-mail:   <input type='text' name='email' value='%s'> <br>", email));
         out.println(            "   <input type='submit' value='Salvar'>");
         out.println(            "</form>");
